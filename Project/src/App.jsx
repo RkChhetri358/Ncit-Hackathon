@@ -12,7 +12,7 @@ function App() {
     <>
    <Login/>
    <Signup/>
-   <span>Test</span>
+   <div className="hello">hi</div>
     </>
   )
 }
