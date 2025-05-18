@@ -1,20 +1,27 @@
-import { useState } from 'react'
 
-import './App.css'
-import Login from './components/Login/Login'
-import Signup from './components/Signup/Signup'
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {  Link } from 'react-router-dom';
+
+import Login from "./components/Login/Login";
+import Signup from "./components/Signup/Signup";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const router = createBrowserRouter([
+    {
+      path: "/Signup",
+      element: <Signup />,
+    }
+  ]);
 
   return (
     <>
-    <Navbar/>
-    <Footer/>
+      <RouterProvider router={router}/>
+      <Navbar />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
