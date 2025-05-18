@@ -17,9 +17,25 @@ function App() {
 
   return (
     <>
+<<<<<<< HEAD
       <RouterProvider router={router}/>
       <Navbar />
       <Footer />
+=======
+
+
+   <div>
+
+    <Navbar/>
+   <Signup/>
+   </div>
+
+
+    <Footer/>
+
+
+
+>>>>>>> 505128e8da0a3467f80d27e46bbc106e3d6a41f9
     </>
   );
 }
