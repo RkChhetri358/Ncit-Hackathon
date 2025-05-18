@@ -10,6 +10,9 @@ export default function Signup() {
   return (
 
     <>
+    <div className="main">
+
+   
       <div className="header">
         <div id="title">
           Sign up
@@ -47,6 +50,7 @@ export default function Signup() {
 
         </div>
       </div>
+       </div>
     </>
 
   );

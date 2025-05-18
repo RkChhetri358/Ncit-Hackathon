@@ -15,10 +15,10 @@ function App() {
 
    <div>
 
+    <Navbar/>
    <Signup/>
    </div>
 
-    <Navbar/>
 
     </>
   )

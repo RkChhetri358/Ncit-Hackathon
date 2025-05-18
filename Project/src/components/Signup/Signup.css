@@ -8,13 +8,13 @@
   --card-bg: rgba(255, 255, 255, 0.3);
 }
 
-body {
+.main{
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to bottom, var(--bg-color), var(--accent-light));
-  display: flex;
-  justify-content: center;
+  justify-items: center;
+
   align-items: center;
   min-height: 100vh;
 }
@@ -32,15 +32,17 @@ body {
 }
 
 .card {
+  
   background: var(--card-bg);
   border-radius: 1.25rem;
   box-shadow: 0 0.5rem 2rem rgba(154, 166, 178, 0.2);
   backdrop-filter: blur(0.5rem);
   -webkit-backdrop-filter: blur(0.5rem);
   border: 1px solid var(--accent-medium);
+ 
   width: 100%;
-  max-width: 70rem;
-  padding: 3rem 2rem;
+  max-width: 40rem;
+  padding:  3rem 2rem;
   box-sizing: border-box;
 }
 
