@@ -10,8 +10,11 @@ function App() {
 
   return (
     <>
-   <Login/>
+   {/* <Login/> */}
+   <div>
+
    <Signup/>
+   </div>
     </>
   )
 }
