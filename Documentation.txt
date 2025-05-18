@@ -1,0 +1,26 @@
+URLS FOR FRONTEND :
+
+FOR SIGNUP:
+
+http://127.0.0.1:8000/api/signup/
+
+REQURIES:
+    username
+    email
+    phone_number
+    address
+    password
+    password2
+
+FOR JWT TOKEN LOGIN:
+
+http://127.0.0.1:8000/api/token/
+
+REQURIES:
+    username
+    password
+
+FOR JWT TOKEN REFRESH:
+
+http://127.0.0.1:8000/api/token/refresh/
+
