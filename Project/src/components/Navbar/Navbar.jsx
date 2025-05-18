@@ -13,8 +13,9 @@ export default function Navbar() {
       </ul>
 
       <div className="nav-icons">
-       <Link to="/signup"><i class="fa-regular fa-circle-user"></i></Link>
+     
         <Link to="/login"><i class="fa-solid fa-right-to-bracket"></i></Link>
+        <Link to="/signup"><i class="fa-regular fa-circle-user"></i></Link>
       </div>
     </nav>
   );
