@@ -14,7 +14,7 @@ function App() {
 
 
    <div>
-
+    <Login />
     <Navbar/>
    <Signup/>
    </div>
