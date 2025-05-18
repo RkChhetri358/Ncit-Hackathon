@@ -1,6 +1,7 @@
 
+import Signup from "../Signup/Signup";
 import "./Navbar.css";
-
+import {  Link } from 'react-router-dom';
 export default function Navbar() {
   return (
     <>
@@ -14,9 +15,11 @@ export default function Navbar() {
   </ul>
 
   <div className="nav-icons">
-    <a href="#" title="Search" aria-label="Signup"><i class="fa-solid fa-magnifying-glass"></i></a>
-    <a href="#" title="Account" aria-label="Login"><i class="fa-regular fa-circle-user"></i></a>
+    <Link to ="/Signup" title="Search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></Link>
+    <Link href="#" title="Account" aria-label="Account"><i class="fa-regular fa-circle-user"></i></Link>
    
+
+
   </div>
 </nav>
     </>
