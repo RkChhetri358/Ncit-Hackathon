@@ -139,3 +139,29 @@ button:hover {
   margin-top: 10px;
   margin-bottom: 5px;
 }
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-container input {
+  padding-left: 30px; /* Space for icon */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-icon {
+  position: absolute;
+  left: 8px;
+  color: #888;
+  pointer-events: none;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 8px;
+  cursor: pointer;
+  color: #888;
+}

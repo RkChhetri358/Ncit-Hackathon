@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faUser,
+  faPhone,
+  faMapMarkerAlt,
+  faEnvelope,
+  faLock,
+} from "@fortawesome/free-solid-svg-icons";
 import "./Signup.css";
 
 export default function Signup() {
@@ -29,7 +37,6 @@ export default function Signup() {
       return;
     }
 
-    // Proceed with submission logic here
     setError("");
     alert("Submitted successfully!");
   };
@@ -44,34 +51,54 @@ export default function Signup() {
         <div className="card">
           <div className="card-body">
             <form onSubmit={handleSubmit}>
-              <div className="row">
+              <div className="row input-with-icon">
                 <label htmlFor="firstname">First Name: </label>
-                <input type="text" />
-              </div>
-              <div className="row">
-                <label htmlFor="lastname">Last Name: </label>
-                <input type="text" />
-              </div>
-              <div className="row">
-                <label htmlFor="phone">Phone No: </label>
-                <input type="text" />
-              </div>
-              <div className="row">
-                <label htmlFor="address">Address: </label>
-                <input type="text" />
-              </div>
-              <div className="row">
-                <label htmlFor="email">Email: </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                <div className="input-container">
+                  <FontAwesomeIcon icon={faUser} className="input-icon" />
+                  <input type="text" />
+                </div>
               </div>
 
-              <div className="row password-row">
+              <div className="row input-with-icon">
+                <label htmlFor="lastname">Last Name: </label>
+                <div className="input-container">
+                  <FontAwesomeIcon icon={faUser} className="input-icon" />
+                  <input type="text" />
+                </div>
+              </div>
+
+              <div className="row input-with-icon">
+                <label htmlFor="phone">Phone No: </label>
+                <div className="input-container">
+                  <FontAwesomeIcon icon={faPhone} className="input-icon" />
+                  <input type="text" />
+                </div>
+              </div>
+
+              <div className="row input-with-icon">
+                <label htmlFor="address">Address: </label>
+                <div className="input-container">
+                  <FontAwesomeIcon icon={faMapMarkerAlt} className="input-icon" />
+                  <input type="text" />
+                </div>
+              </div>
+
+              <div className="row input-with-icon">
+                <label htmlFor="email">Email: </label>
+                <div className="input-container">
+                  <FontAwesomeIcon icon={faEnvelope} className="input-icon" />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="row password-row input-with-icon">
                 <label htmlFor="password">Password: </label>
-                <div className="password-input">
+                <div className="input-container">
+                  <FontAwesomeIcon icon={faLock} className="input-icon" />
                   <input
                     type={showPassword ? "text" : "password"}
                     value={password}
@@ -85,9 +112,10 @@ export default function Signup() {
                 </div>
               </div>
 
-              <div className="row password-row">
+              <div className="row password-row input-with-icon">
                 <label htmlFor="confirmpassword">Confirm Password: </label>
-                <div className="password-input">
+                <div className="input-container">
+                  <FontAwesomeIcon icon={faLock} className="input-icon" />
                   <input
                     type={showConfirmPassword ? "text" : "password"}
                     value={confirmPassword}
@@ -102,7 +130,7 @@ export default function Signup() {
               </div>
 
               {error && <p className="error-message">{error}</p>}
-<br/>
+              <br />
               <div className="row">
                 <button type="submit">Submit</button>
               </div>
