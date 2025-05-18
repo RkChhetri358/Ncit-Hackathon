@@ -8,7 +8,7 @@ export default function Signup() {
     <div>Test</div>
     </>
 
-    <div id="key">Signup done by prasis</div>
+ 
 
   )
 }

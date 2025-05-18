@@ -1,0 +1,41 @@
+.hackathon-footer {
+  background: linear-gradient(90deg, #2268b3 0%, #784c48 100%);
+  color: #D9EAFD;
+  padding: 32px 0 24px 0;
+  box-shadow: 0 -4px 24px rgba(44, 62, 80, 0.12);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.footer-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hackathon-footer strong {
+  color: #F8FAFC;
+  letter-spacing: 0.03em;
+}
+
+.footer-social {
+  margin-top: 18px;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin: 0 14px;
+  color: #ffffff;
+  background: #D9EAFD(248,180,0,0.08);
+  padding: 8px 18px;
+  border-radius: 22px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: backgroundColor 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.footer-social a:hover {
+  background: #f8b400;
+  color: #232526;
+  box-shadow: 0 2px 12px rgba(248,180,0,0.18);
+}
