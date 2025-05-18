@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
+
     <Router>
       <Navbar />
       <div>
@@ -18,6 +19,7 @@ function App() {
       <Footer />
     </Router>
   );
+
 }
 
 export default App;
