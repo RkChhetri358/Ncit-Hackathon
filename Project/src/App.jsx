@@ -11,8 +11,19 @@ function App() {
 
   return (
     <>
+
+
+   <div>
+
+   <Signup/>
+   </div>
+
     <Navbar/>
+
     <Footer/>
+
+
+
     </>
   )
 }
