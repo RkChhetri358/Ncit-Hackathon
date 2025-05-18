@@ -10,9 +10,9 @@ export default function Footer() {
       &copy; 2025 Team Sync &mdash; All rights reserved.
     </p>
     <div className="footer-social">
-      <a href="https://github.com/yourteam" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://twitter.com/yourteam" target="_blank" rel="noopener">Twitter</a>
-      <a href="https://linkedin.com/company/yourteam" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/yourteam" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+      <a href="https://twitter.com/yourteam" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://linkedin.com/company/yourteam" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
     </div>
   </div>
 </footer>
