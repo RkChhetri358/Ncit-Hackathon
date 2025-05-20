@@ -18,8 +18,11 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login/>} />
         </Routes>
+      <footer>
+ <Footer />
+      </footer>
       </div>
-      <Footer />
+     
     </Router>
   );
 

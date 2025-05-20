@@ -1,0 +1,102 @@
+.egov-container {
+  position: relative;
+  width: 90vw;
+  max-width: 600px;
+  height: 90vw;
+  max-height: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+#services {
+  display: flex;
+  justify-content: center;
+  color: blue;
+  font-size: xx-large;
+  margin-left: 130px;
+  text-align: center;
+  text-shadow: 1px 1px #FF5722;
+}
+
+.egov-center {
+  position: absolute;
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  background-color: #FF5722;
+  color: white;
+  width: 25vw;
+  height: 25vw;
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.egov-feature {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+}
+
+.egov-button {
+  width: 22vw;
+  height: 22vw;
+  max-width: 130px;
+  max-height: 130px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.egov-button:hover {
+  transform: scale(1.5);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.egov-icon {
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+
+.egov-label {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .egov-button {
+    width: 18vw;
+    height: 18vw;
+    font-size: 0.65rem;
+  }
+
+  .egov-label {
+    font-size: 0.6rem;
+  }
+
+  .egov-icon {
+    font-size: 1.2rem;
+  }
+
+  .egov-center {
+    width: 30vw;
+    height: 30vw;
+    font-size: 0.9rem;
+  }
+}
