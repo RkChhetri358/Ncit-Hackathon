@@ -40,7 +40,7 @@
 .egov-container {
   position: relative;
   width: min(90vw, 600px);
-  height: min(80vw, 600px);
+  height: min(90vw, 600px);
   margin: 0 auto;
   filter: drop-shadow(0 5px 20px rgba(0, 0, 0, 0.1));
 }
