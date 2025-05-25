@@ -11,8 +11,36 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here
+
+
+
     console.log({ username, password, rememberMe });
   };
+
+
+  const handleLogin =async()=>{
+    const data={
+      email:username,
+      password:password
+    
+    
+    }
+    const url ="https://localhost:44365/api/Test/login";
+    try {
+      const result =await axios.post(url,data);
+      if(result.data.StatusCode==200)
+      {
+        onLoginSucess();
+        console.log(result.data);
+      }
+      
+    } catch (error) {
+       alert("Login failed! Please check your credentials.");
+      
+    }
+  };
+
+
 
   return (
     <div className="main">
