@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,15 +15,13 @@ import {
 import "./Signup.css";
 
 export default function Signup() {
-
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [first_name,setFirst_name]=useState("");
-  const [last_name,setLast_name]=useState("");
-  const [Phonenumber,setPhonenumber]=useState("");
-  const [address,setAddress]=useState("");
- 
-
+  const [first_name, setFirst_name] = useState("");
+  const [last_name, setLast_name] = useState("");
+  const [Phonenumber, setPhonenumber] = useState("");
+  const [address, setAddress] = useState("");
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -39,50 +37,42 @@ export default function Signup() {
     setShowConfirmPassword((prev) => !prev);
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("Form is being submitted");
     if (password !== confirmPassword) {
       setError("Passwords do not match!");
       return;
     }
-    try{
-      const response =await axios.post("http://127.0.0.1:8000/parva_website/admins/signup/",
-        {
-          first_name,
-          last_name,
-          Phonenumber,
-          address,
-          email,
-          password,
-          
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/users//backend/signup/", {
+        first_name,
+        last_name,
+        Phonenumber,
+        address,
+        email,
+        password,
+      },{
+          headers: {
+    'Content-Type': 'application/json'
+  }
 
-          
-          
-
-        }
-      );
-      if(response.status === 201)
-            {
-                alert("SignUp Successful");
-                navigate('/login'); // Use navigate function for redirection
-            }
-    }catch(error)
-    {
+      });
+      if (response.status === 201) {
+        alert("SignUp Successful");
+        navigate("/login"); // Navigate on success
+      }
+    } catch (error) {
       if (error.response) {
-                // Server responded with a status other than 2xx
-                alert(`Error: ${JSON.stringify(error.response.data)}`);
-            } else if (error.request) {
-                // No response received from server
-                alert("No response from server. Please try again later.");
-            } else {
-                alert(`Error: ${error.message}`);
-            }
-
+        alert(`Error: ${JSON.stringify(error.response.data)}`);
+      } else if (error.request) {
+        alert("No response from server. Please try again later.");
+      } else {
+        alert(`Error: ${error.message}`);
+      }
     }
 
     setError("");
-  
   };
 
   return (
@@ -99,7 +89,11 @@ export default function Signup() {
                 <label htmlFor="firstname">First Name: </label>
                 <div className="input-container">
                   <FontAwesomeIcon icon={faUser} className="input-icon" />
-                  <input type="text" value={first_name} onChange={(e) => setFirst_name(e.target.value)} />
+                  <input
+                    type="text"
+                    value={first_name}
+                    onChange={(e) => setFirst_name(e.target.value)}
+                  />
                 </div>
               </div>
 
@@ -107,7 +101,11 @@ export default function Signup() {
                 <label htmlFor="lastname">Last Name: </label>
                 <div className="input-container">
                   <FontAwesomeIcon icon={faUser} className="input-icon" />
-                  <input type="text"  value={last_name} onChange={(e)=>setLast_name(e.target.value)}/>
+                  <input
+                    type="text"
+                    value={last_name}
+                    onChange={(e) => setLast_name(e.target.value)}
+                  />
                 </div>
               </div>
 
@@ -115,7 +113,11 @@ export default function Signup() {
                 <label htmlFor="phone">Phone No: </label>
                 <div className="input-container">
                   <FontAwesomeIcon icon={faPhone} className="input-icon" />
-                  <input type="text" value={Phonenumber} onChange={(e)=>setPhonenumber(e.target.value)} />
+                  <input
+                    type="text"
+                    value={Phonenumber}
+                    onChange={(e) => setPhonenumber(e.target.value)}
+                  />
                 </div>
               </div>
 
@@ -123,7 +125,11 @@ export default function Signup() {
                 <label htmlFor="address">Address: </label>
                 <div className="input-container">
                   <FontAwesomeIcon icon={faMapMarkerAlt} className="input-icon" />
-<input type="text" value={address} onChange={(e)=>setAddress(e.target.value)} />
+                  <input
+                    type="text"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                  />
                 </div>
               </div>
 
