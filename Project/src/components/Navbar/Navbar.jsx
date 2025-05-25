@@ -1,25 +1,22 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
 import "./Navbar.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 export default function Navbar() {
   return (
-    <>
     <nav>
-  <ul class="navbar">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Portfolio</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
+      <ul className="navbar">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/services">Services</Link></li>
+        <li><Link to="/complaint">Complaint</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
+      </ul>
 
-  <div className="nav-icons">
-    <a href="#" title="Search" aria-label="Signup"><i class="fa-solid fa-magnifying-glass"></i></a>
-    <a href="#" title="Account" aria-label="Login"><i class="fa-regular fa-circle-user"></i></a>
-   
-  </div>
-</nav>
-    </>
-  )
+      <div className="nav-icons">
+     
+        <Link to="/login"><i class="fa-solid fa-right-to-bracket"></i></Link>
+        <Link to="/signup"><i class="fa-regular fa-circle-user"></i></Link>
+      </div>
+    </nav>
+  );
 }

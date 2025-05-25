@@ -4,6 +4,9 @@ from .models import User
 class user_serializer_signup(serializers.ModelSerializer):
     password = serializers.CharField(write_only = True)
     password2 = serializers.CharField(write_only = True)
+    
+    
+    #maile utk sanga raakheko password ho yo maathi ko
 
     class Meta:
         model = User
@@ -12,7 +15,7 @@ class user_serializer_signup(serializers.ModelSerializer):
     def validate(self, attrs):
         password = attrs.get("password",'')
         password2 = attrs.get("password2",'')
-
+ 
         if password != password2:
             raise serializers.ValidationError("Password do not match")
         return attrs
