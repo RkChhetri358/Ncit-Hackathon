@@ -1,34 +1,13 @@
 from rest_framework import serializers
 from .models import User
+from django.contrib.auth.hashers import make_password
 
-class user_serializer_signup(serializers.ModelSerializer):
-    password = serializers.CharField(write_only = True)
-    password2 = serializers.CharField(write_only = True)
-    
-    
-    #maile utk sanga raakheko password ho yo maathi ko
-
+class UserSignupSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['address','phone_number','email','username','password','password2']
+        fields = ['username', 'email','first_name','last_name', 'password', 'phone_number', 'address']
+        extra_kwargs = {'password': {'write_only': True}}
 
-    def validate(self, attrs):
-        password = attrs.get("password",'')
-        password2 = attrs.get("password2",'')
- 
-        if password != password2:
-            raise serializers.ValidationError("Password do not match")
-        return attrs
-    
     def create(self, validated_data):
-        password = validated_data.pop('password')
-        validated_data.pop('password2')
-        user = User(**validated_data)
-        user.set_password(password)
-        try:
-            user.save()
-        except Exception as e:
-            print("Error saving user:", e)
-        return user
-
-    
+        validated_data['password'] = make_password(validated_data['password'])
+        return super(UserSignupSerializer, self).create(validated_data)

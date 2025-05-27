@@ -46,11 +46,12 @@ export default function Signup() {
     }
     try {
       const response = await axios.post("http://127.0.0.1:8000/api/signup/", {
-        first_name,
-        last_name,
+        username:email,
+        first_name:first_name,
+        last_name:last_name,
          phone_number: Phonenumber,  
         address,
-        username:email,
+        email:email,
         password,
          password2: confirmPassword,
       },{

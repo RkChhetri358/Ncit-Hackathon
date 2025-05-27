@@ -1,13 +1,7 @@
-from django.urls import path,include
-
+from django.urls import path
 from . import views
 
-
-#views lai import gareko cha 
-
-
-urlpatterns = [ 
-    path('signup/',views.user_signup,name="signup"),
-  
-    
+urlpatterns = [
+    path('signup/', views.user_signup, name='signup'),
+    path('login/', views.login_user, name='login_user'),
 ]
