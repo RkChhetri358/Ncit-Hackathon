@@ -1,61 +1,45 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './login.css';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-
-
-
-    console.log({ username, password, rememberMe });
-  };
-
-
-  const handleLogin =async()=>{
-    const data={
-      email:username,
-      password:password
-    
-    
-    }
-    const url ="https://localhost:44365/api/Test/login";
+  const handleLogin = async (e) => {
+    e.preventDefault();  // prevent form reload
     try {
-      const result =await axios.post(url,data);
-      if(result.data.StatusCode==200)
-      {
-        onLoginSucess();
-        console.log(result.data);
+      const response = await axios.post('http://127.0.0.1:8000/api/login/', {
+         email:email,
+      //  backend:frontend
+       
+        password,
+      });
+
+      if (response.status === 200) {
+        alert(`Welcome ${response.data.first_name}`);
+        // TODO: save tokens or user info, redirect, etc.
       }
-      
     } catch (error) {
-       alert("Login failed! Please check your credentials.");
-      
+      alert("Login failed! Please check your credentials.");
+      console.error("Login error:", error);
     }
   };
-
-
 
   return (
     <div className="main">
-      <div className="header">
-        <h1 id="title">Login</h1>
-      </div>
+      <div className="header"><h1>Login</h1></div>
       <div className="card">
-        <form className="card-body" onSubmit={handleSubmit}>
+        <form className="card-body" onSubmit={handleLogin}>
           <div className="row">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -69,29 +53,18 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <span 
-                className="eye-icon" 
+              <span
+                className="eye-icon"
                 onClick={() => setShowPassword(!showPassword)}
+                style={{ cursor: 'pointer' }}
               >
                 {showPassword ? '👁️' : '👁️‍🗨️'}
               </span>
             </div>
           </div>
-          <div className="row options">
-            <div className="remember-me">
-              <input
-                type="checkbox"
-                id="rememberMe"
-                checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.checked)}
-              />
-              <label htmlFor="rememberMe">Remember me</label>
-            </div>
-            <a href="/forgot-password" className="forgot-password">Forgot password?</a>
-          </div>
           <button type="submit" className="login-button">Login</button>
           <div className="register-link">
-            Don't have an account?<Link to="/signup">Register here</Link>
+            Don't have an account? <Link to="/signup">Register here</Link>
           </div>
         </form>
       </div>

@@ -1,18 +1,27 @@
-from django.shortcuts import render
-from django.http import JsonResponse
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from django.contrib.auth import authenticate, login
 
-
-from .serializers import user_serializer_signup
+from .serializers import UserSignupSerializer
 from .models import User
-# Create your views here.
 
 @api_view(['POST'])
 def user_signup(request):
-    if request.method == 'POST':
-        serializer = user_serializer_signup(data = request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data,status = 201)
-        return JsonResponse(serializer.errors,status = 400)
-        
+    serializer = UserSignupSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)
+
+@api_view(['POST'])
+def login_user(request):
+    email = request.data.get('email')
+    password = request.data.get('password')
+
+    user = authenticate(request, username=email, password=password)
+    if user is not None:
+        login(request, user)
+        return Response({"message": "Login successful", "first_name": user.first_name}, status=200)
+    else:
+        return Response({"error": "Invalid credentials"}, status=401)

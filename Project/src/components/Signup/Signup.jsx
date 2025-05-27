@@ -45,13 +45,15 @@ export default function Signup() {
       return;
     }
     try {
-      const response = await axios.post("http://127.0.0.1:8000/users//backend/signup/", {
-        first_name,
-        last_name,
-        Phonenumber,
+      const response = await axios.post("http://127.0.0.1:8000/api/signup/", {
+        username:email,
+        first_name:first_name,
+        last_name:last_name,
+         phone_number: Phonenumber,  
         address,
-        email,
+        email:email,
         password,
+         password2: confirmPassword,
       },{
           headers: {
     'Content-Type': 'application/json'
@@ -182,7 +184,7 @@ export default function Signup() {
               {error && <p className="error-message">{error}</p>}
               <br />
               <div className="row">
-                <button type="submit">Submit</button>
+                <button  onClick={handleSubmit}>Submit</button>
               </div>
             </form>
           </div>
