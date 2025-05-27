@@ -1,4 +1,4 @@
- * {
+ /* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,7 +18,7 @@ nav {
 }
 
 
-  /* Left menu */
+ 
   ul.navbar {
     list-style: none;
     display: flex;
@@ -54,14 +54,14 @@ nav {
     width: 100%;
   }
 
-  /* Right icons container */
+  
   .nav-icons {
     display: flex;
     align-items: center;
     gap: 1.8rem;
   }
 
-  /* Icon links */
+ 
   .nav-icons a {
     color: #F8FAFC;
     font-size: 1.3rem;
@@ -72,4 +72,39 @@ nav {
 
   .nav-icons a:hover {
     color: #ff6a00;
+  } */
+
+
+  /* new code */
+  *
+  {
+    margin: 0px;
+    padding: 0px;
+  }
+  .navbody
+  {
+   display: flex;
+   flex-direction: column;
+    
+  }
+  .navlogo
+  {
+    border: 2px solid red;
+    height: 30vh;
+  }
+  .actualphoto
+  {
+    
+  }
+   .navprofile
+  {
+    border: 2px solid red;
+        height: 20vh;
+
+  }
+   .navnavigation
+  {
+    border: 2px solid red;
+        height: 50vh;
+
   }

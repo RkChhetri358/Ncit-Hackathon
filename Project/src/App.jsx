@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import "./App.css";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Navbar from "./components/Navbar/Navbar";
@@ -10,23 +10,35 @@ import Complaint from "./components/Complaint/Complaint";
 function App() {
   return (
 
-    <Router>
-      <Navbar />
+//     <Router>
+//       <Navbar />
       
-      <div>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/complaint" element={<Complaint />} />
+//       <div>
+//         <Routes>
+//           <Route path="/" element={<Home/>} />
+//           <Route path="/signup" element={<Signup />} />
+//           <Route path="/login" element={<Login/>} />
+//           <Route path="/complaint" element={<Complaint />} />
 
-        </Routes>
-      <footer>
- <Footer />
-      </footer>
-      </div>
+//         </Routes>
+//       <footer>
+//  <Footer />
+//       </footer>
+//       </div>
      
-    </Router>
+//     </Router>
+<>
+      <div className="mainbody">
+      <div className="leftnav">
+      <Navbar/>
+      </div>
+      <div className="rightcontent">
+
+      2 
+      </div>
+
+      </div>
+</>
   );
 
 }

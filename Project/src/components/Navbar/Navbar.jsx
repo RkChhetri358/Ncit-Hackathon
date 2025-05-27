@@ -1,22 +1,23 @@
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
-
+import logo from "./pictures/GOVFIX.jpg";
 export default function Navbar() {
   return (
-    <nav>
-      <ul className="navbar">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/services">Services</Link></li>
-        <li><Link to="/complaint">Complaint</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-      </ul>
-
-      <div className="nav-icons">
-     
-        <Link to="/login"><i class="fa-solid fa-right-to-bracket"></i></Link>
-        <Link to="/signup"><i class="fa-regular fa-circle-user"></i></Link>
+   
+    <>
+      <div className="navbody">
+        <div className="navlogo">
+          <div className="actualphoto">
+            <img src={logo} alt="JAY NEPAL !" />
+          </div>
+        </div>
+        <div className="navprofile">
+         2
+        </div>
+        <div className="navnavigation">
+          3
+        </div>
       </div>
-    </nav>
+    </>
   );
 }
