@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
-import logo from "./pictures/GOVFIX.jpg";
+import logo from "../pictures/GOVFIX.jpg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faUserAlt, faUserCheck, faUserCircle, faUserClock } from '@fortawesome/free-solid-svg-icons'
+import  "../../index.css";
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 export default function Navbar() {
   return (
    
@@ -8,14 +12,19 @@ export default function Navbar() {
       <div className="navbody">
         <div className="navlogo">
           <div className="actualphoto">
-            <img src={logo} alt="JAY NEPAL !" />
+          <img src={logo} height={250} alt="JAY NEPAL !" />
           </div>
         </div>
         <div className="navprofile">
-         2
+            <div className="profilelogo" >
+                <FontAwesomeIcon icon={faUserAlt} style={{ color: 'gray', fontSize: '40px' }}/>
+            </div>
+            <div className="profilename">
+                Pratishthit
+            </div>
         </div>
         <div className="navnavigation">
-          3
+         <Link to ="/login" >this is link</Link>
         </div>
       </div>
     </>

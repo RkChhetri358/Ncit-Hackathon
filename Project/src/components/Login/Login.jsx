@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './login.css';
+import Navbar from '../Navbar/Navbar';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -43,7 +44,9 @@ const Login = () => {
 
 
   return (
-    <div className="main">
+    <>
+     <div className="main">
+    <Navbar/> 
       <div className="header">
         <h1 id="title">Login</h1>
       </div>
@@ -96,6 +99,8 @@ const Login = () => {
         </form>
       </div>
     </div>
+    </>
+   
   );
 };
 

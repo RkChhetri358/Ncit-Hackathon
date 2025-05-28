@@ -83,28 +83,43 @@ nav {
   }
   .navbody
   {
-   display: flex;
-   flex-direction: column;
-    
+    display: grid;
+    grid-template-rows: 2fr 1fr 4fr;
+    height: 100vh;
   }
-  .navlogo
+  /* .navlogo
   {
-    border: 2px solid red;
-    height: 30vh;
-  }
+    
+  
+  } */
   .actualphoto
   {
-    
+     
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
   }
    .navprofile
   {
-    border: 2px solid red;
-        height: 20vh;
+      border: 2px solid red;
+       display: flex;
+       gap: 10px;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
 
+  }
+  .profilelogo{
+        border: 2px solid red;
+  }
+  .profilename{
+    font-size: larger;
   }
    .navnavigation
   {
-    border: 2px solid red;
-        height: 50vh;
+    
+             border: 2px solid red;
+
 
   }
