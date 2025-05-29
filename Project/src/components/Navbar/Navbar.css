@@ -1,4 +1,4 @@
- /* * {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -74,52 +74,120 @@ nav {
     color: #ff6a00;
   } */
 
+/* new code */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.navbody {
+  display: grid;
+  grid-template-rows: 1fr 1fr 4fr;
+  height: 100vh;
+ 
 
-  /* new code */
-  *
-  {
-    margin: 0px;
-    padding: 0px;
-  }
-  .navbody
-  {
-    display: grid;
-    grid-template-rows: 2fr 1fr 4fr;
-    height: 100vh;
-  }
-  /* .navlogo
+}
+/* .navlogo
   {
     
   
   } */
-  .actualphoto
-  {
-     
-       width: 100%;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-  }
-   .navprofile
-  {
-      border: 2px solid red;
-       display: flex;
-       gap: 10px;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
+.actualphoto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navprofile {
+  
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
 
-  }
-  .profilelogo{
-        border: 2px solid red;
-  }
-  .profilename{
-    font-size: larger;
-  }
-   .navnavigation
-  {
-    
-             border: 2px solid red;
+  .navprofile {
+  background-color: #f0f8ff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
 
-  }
+
+}
+
+.profilename {
+  font-size: larger;
+  font-weight: bold;
+}
+.navnavigation {
+
+  display: flex;
+   
+  justify-content: center;
+  align-items: center;
+ 
+  
+}
+.navbar-list{
+ list-style: none;
+
+  display: flex;
+  flex-direction: column;       /* Make it flex container */
+  gap: 20px;           /* Add horizontal space between links */
+  padding: 0;          /* Remove default padding */
+  margin: 0; 
+}
+.links
+{
+  
+  text-decoration: none;
+
+  font-size:25px;
+
+
+    position: relative;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000; /* dark grey */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.links svg {
+  background: transparent;
+}
+
+.links:hover {
+  background-color: #eeefef8e; /* light blue background */
+  color:  #856b6b; /* darker blue text */
+  box-shadow: 0 10px 12px rgba(247, 22, 22, 0.1);
+}
+
+/* Click (active) effect */
+.links:active {
+  transform: scale(0.96);
+  background-color: #bad1fd; /* slightly darker blue */
+}
+
+/* Optional underline animation */
+.links::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #0c1650, #e90707); /* gradient underline */
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.links:hover::after {
+  width: 100%;
+}

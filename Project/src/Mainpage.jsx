@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
 import "./Mainpage.css"
+import NeonBackground from './components/NeonBackground.jsx'
 export default function Mainpage() {
   return (
     <>
@@ -9,8 +10,8 @@ export default function Mainpage() {
       <Navbar/>
       </div>
       <div className="rightcontent">
-
-      2 
+      <NeonBackground/>
+      
       </div>
 
       </div>
