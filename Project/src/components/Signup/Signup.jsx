@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useRef, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLocation } from 'react-router-dom';
+import dummpypic from '../Pictures/dummy.jpg';
 
 import {
   faEye,
@@ -13,6 +15,7 @@ import {
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Signup.css";
+
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -28,6 +31,37 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState("");
+
+
+
+
+    const location = useLocation();
+  const user = location.state || JSON.parse(localStorage.getItem('user'));
+
+  useEffect(() => {
+    if (!user) {
+      // redirect to login or show error
+    }
+  }, [user]);
+   const [image, setImage] = useState(null);
+  const fileInputRef = useRef(null);
+// const email = localStorage.getItem("email");
+  const handleImageChange = async (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
+     
+    }
+
+
+  };
+
+    const handleImageClick = () => {
+    fileInputRef.current.click();
+  };
+
+
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -54,6 +88,7 @@ export default function Signup() {
         email:email,
         password,
          password2: confirmPassword,
+         picture:image
       },{
           headers: {
     'Content-Type': 'application/json'
@@ -87,6 +122,33 @@ export default function Signup() {
         <div className="card">
           <div className="card-body">
             <form onSubmit={handleSubmit}>
+               <center> <div className="p-4" >
+      {/* Hidden File Input */}
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+      />
+
+      {/* Image (clickable) */}
+      <div style={{ marginTop: '20px', cursor: 'pointer' }} onClick={handleImageClick}>
+        <img
+          src={image || dummpypic} // Dummy image shown initially
+          alt="Uploaded Preview"
+          style={{
+            maxWidth: 100,
+            height: 100,
+            border: '1px solid #ccc',
+            borderRadius: 100,
+          }}
+          
+        />
+        <h3> Add your Image</h3>
+      </div>
+    </div>
+    </center>
               <div className="row input-with-icon">
                 <label htmlFor="firstname">First Name: </label>
                 <div className="input-container">

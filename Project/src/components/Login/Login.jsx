@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
+import Navbar from '../Navbar/Navbar';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Login = () => {
   };
 
   return (
+    <>
     <div className="main">
       <div className="header"><h1>Login</h1></div>
       <div className="card">
@@ -75,6 +77,8 @@ const Login = () => {
         </form>
       </div>
     </div>
+    </>
+   
   );
 };
 
