@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 
 const Login = () => {
+    const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -15,11 +16,16 @@ const Login = () => {
          email:email,
       //  backend:frontend
        
-        password,
+        password:password,
       });
 
       if (response.status === 200) {
         alert(`Welcome ${response.data.first_name}`);
+        const { email, first_name } = response.data;
+
+         navigate("/Sample", { state: { email, first_name } } );
+          localStorage.setItem('user', JSON.stringify({ email, first_name }));
+      
         // TODO: save tokens or user info, redirect, etc.
       }
     } catch (error) {

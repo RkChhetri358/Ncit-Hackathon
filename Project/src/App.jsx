@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from './components/Home/Home';
 import Complaint from "./components/Complaint/Complaint";
+import Sample from './components/Sample/Sample';
 
 function App() {
   return (
@@ -19,11 +20,16 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login/>} />
           <Route path="/complaint" element={<Complaint />} />
+          <Route path="/Sample" element={<Sample/>} />
+
+
 
         </Routes>
       <footer>
  <Footer />
       </footer>
+
+
       </div>
      
     </Router>

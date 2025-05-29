@@ -11,3 +11,18 @@ class UserSignupSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])
         return super(UserSignupSerializer, self).create(validated_data)
+    
+    
+    
+    
+
+class UserPhotoSignupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['picture']  # You may need to include 'user' if it's a separate profile model
+
+
+# class ComplaintsSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Complaints
+#         fields = ['Complaint_name', 'No_of_Votes', 'first_name', 'last_name', 'email', 'phone_number', 'address', 'picture']

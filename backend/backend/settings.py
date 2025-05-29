@@ -31,9 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'api',
+    'api',  # your app
     'rest_framework',
-        'corsheaders',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,15 +42,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# CORS settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  
+    "http://localhost:5173",
 ]
+
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  
-    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # must be high
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
+    'django.middleware.common.CommonMiddleware', 
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [BASE_DIR / 'templates'],  # if you have templates folder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,8 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-# settings.py
-
 TIME_ZONE = 'Asia/Kathmandu'
 
 USE_I18N = True
@@ -131,20 +130,25 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+# Use your custom user model
 AUTH_USER_MODEL = 'api.User'
 
+
+# Django REST Framework configuration
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ]
+    ],
 }
 
 
+# Email configuration (Gmail SMTP)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_PORT = 587  
-EMAIL_HOST_USER = 'utkristhabhattarai@gmail.com'  
-EMAIL_HOST_PASSWORD = 'dtbg osom wiye cqbs '  
-EMAIL_USE_TLS = True  
-EMAIL_USE_SSL = False  
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'utkristhabhattarai@gmail.com'  # your email here
+EMAIL_HOST_PASSWORD = 'dtbg osom wiye cqbs '      # use environment variables in real projects
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
