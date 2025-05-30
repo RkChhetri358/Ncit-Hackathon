@@ -71,46 +71,55 @@ export default function Signup() {
     setShowConfirmPassword((prev) => !prev);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("Form is being submitted");
-    if (password !== confirmPassword) {
-      setError("Passwords do not match!");
-      return;
-    }
-    try {
-      const response = await axios.post("http://127.0.0.1:8000/api/signup/", {
-        username:email,
-        first_name:first_name,
-        last_name:last_name,
-         phone_number: Phonenumber,  
-        address,
-        email:email,
-        password,
-         password2: confirmPassword,
-         picture:image
-      },{
-          headers: {
-    'Content-Type': 'application/json'
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (password !== confirmPassword) {
+    setError("Passwords do not match!");
+    return;
   }
 
-      });
-      if (response.status === 201) {
-        alert("SignUp Successful");
-        navigate("/login"); // Navigate on success
-      }
-    } catch (error) {
-      if (error.response) {
-        alert(`Error: ${JSON.stringify(error.response.data)}`);
-      } else if (error.request) {
-        alert("No response from server. Please try again later.");
-      } else {
-        alert(`Error: ${error.message}`);
-      }
-    }
+  const formData = new FormData();
+  formData.append('username', email);
+  formData.append('email', email);
+  formData.append('first_name', first_name);
+  formData.append('last_name', last_name);
+  formData.append('phone_number', Phonenumber);
+  formData.append('address', address);
+  formData.append('password', password);
+  formData.append('password2', confirmPassword);
 
-    setError("");
-  };
+
+  // Convert blob URL to File and append
+  const file = fileInputRef.current?.files[0];
+  if (file) {
+    formData.append('picture', file);
+  }
+
+  try {
+    const response = await axios.post("http://127.0.0.1:8000/api/signup/", formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    if (response.status === 201) {
+      alert("SignUp Successful");
+      navigate("/");
+    }
+  } catch (error) {
+    if (error.response) {
+      alert(`Error: ${JSON.stringify(error.response.data)}`);
+    } else if (error.request) {
+      alert("No response from server.");
+    } else {
+      alert(`Error: ${error.message}`);
+    }
+  }
+
+  setError("");
+};
+
 
   return (
     <>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
-import Navbar from '../Navbar/Navbar';
+
 
 const Login = () => {
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ const Login = () => {
         alert(`Welcome ${response.data.first_name}`);
         const { email, first_name } = response.data;
 
-         navigate("/Sample", { state: { email, first_name } } );
+         navigate("/maninpage", { state: { email, first_name } } );
           localStorage.setItem('user', JSON.stringify({ email, first_name }));
       
         // TODO: save tokens or user info, redirect, etc.
