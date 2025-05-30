@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login
 from .serializers import UserSignupSerializer
 from .models import User
 
-@api_view(['POST'])
+@api_view(['POST','OPTIONS'])
 def user_signup(request):
     serializer = UserSignupSerializer(data=request.data)
     if serializer.is_valid():

@@ -2,15 +2,14 @@ import { Link } from 'react-router-dom';
 import "./Sidebar.css";
 import logo from "../pictures/GOVFIX.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAd, faCircleInfo, faCompass, faEarth,  faEnvelope, faGear, faHome, faHomeAlt, faSearch, faUserAlt, faUserCheck, faUserCircle, faUserClock } from '@fortawesome/free-solid-svg-icons'
-
+import { faAd, faBell, faCircleInfo, faCompass, faEarth, faEnvelope, faGear, faHome, faHomeAlt, faSearch, faUserAlt, faUserCheck, faUserCircle, faUserClock } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faEarthAsia } from '@fortawesome/free-solid-svg-icons/faEarthAsia';
 
 export default function Sidebar() {
   return (
-     <>
-     <div className="navbody">
+         <>
+      <div className="navbody">
         <div className="navlogo">
           <div className="actualphoto">
           <img src={logo} height={250} alt="JAY NEPAL !" />
@@ -25,36 +24,24 @@ export default function Sidebar() {
                 </div>
             </div>
         <div className="navnavigation">
-          <div className="navbar">
+          <nav className="navbar">
       <ul className="navbar-list">
         <li>
           <Link className='links' to="/">
                 <FontAwesomeIcon icon={faHomeAlt} style={{ color: 'black', fontSize: '25px' }}/>  &nbsp; Home</Link>
         </li>
-          <Link  className='links' to="/search"><FontAwesomeIcon icon={faSearch} style={{ color: 'black', fontSize: '25px' }}/>&nbsp; &nbsp;Search</Link>
+          <Link  className='links' to="/notification"><FontAwesomeIcon icon={faBell} style={{ color: 'black', fontSize: '25px' }}/>&nbsp; &nbsp;Activity</Link>
         <li>
-          <Link  className='links' to="/help"> <FontAwesomeIcon icon={faUserCircle} style={{ color: 'black', fontSize: '25px' }}/>  &nbsp; Explore</Link>
+          <Link  className='links' to="/help"> <FontAwesomeIcon icon={faCircleInfo} style={{ color: 'black', fontSize: '25px' }}/>  &nbsp; Explore</Link>
         </li>
         <li>
         </li>
-      
+        <li>
+          <Link  className='links' to="/settings"><FontAwesomeIcon icon={faGear} style={{ color: 'black', fontSize: '25px' }}/> &nbsp;&nbsp;Settings</Link>
+        </li>
       </ul>
-     
-    </div>
+    </nav>
         </div>
-        <div className='bottom-icons'>
-           <ul>
-        <hr/>
-        <br/>
-        <center>
-        <Link  className='links' to="/settings"><FontAwesomeIcon icon={faGear} style={{ color: 'black', fontSize: '25px' }}/> &nbsp;&nbsp;</Link>
-        <Link  className='links' to="/login"><FontAwesomeIcon icon={faUserCircle}  style={{ color: 'black', fontSize: '25px' }}/>&nbsp;&nbsp;</Link>
-        <Link  className='links' to="/settings"><FontAwesomeIcon icon={faGear} style={{ color: 'black', fontSize: '25px' }}/> &nbsp;&nbsp;</Link>
-        <Link  className='links' to="/settings"><FontAwesomeIcon icon={faGear} style={{ color: 'black', fontSize: '25px' }}/> &nbsp;&nbsp;</Link>
-      </center>
-      </ul>
-        </div>
-
       </div>
     </>
   )
