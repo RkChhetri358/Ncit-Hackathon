@@ -29,7 +29,9 @@ const NeonBackground = () => {
         this.vy = (Math.random() - 0.5) * 0.5;
         this.radius = Math.random() * 2 + 1;
         this.alpha = Math.random();
-        this.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+
+        const hue = Math.random() < 0.5 ? 0 : 220;
+        this.color = `hsl(${hue}, 100%, 70%)`;
       }
 
       update() {

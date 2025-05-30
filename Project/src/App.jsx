@@ -6,14 +6,14 @@ import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Complaint from "./components/Complaint/Complaint";
 import Mainpage from "./Mainpage";
-
+import Search from "./components/Search";
 function App() {
   return (
     <>
       <Router>
           <Routes>
             <Route path="/" element={<Mainpage />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/login" element={<Login />} />
             <Route path="/complaint" element={<Complaint />} />
           </Routes>
